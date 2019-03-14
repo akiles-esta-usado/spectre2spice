@@ -1,0 +1,14 @@
+[nch]
+ignored    = "No"
+added      = ["nmos"]
+removed    = ["type"]
+translated = [
+                ["mos1",     "level=1"  ],
+                ["vto",      "vto"      ],
+                ["gamma",    "gamma"    ],
+                ["kp",       "kp",      ],
+                ["phi",      "phi",     ],
+                ["tox",      "tox",     ],
+                ["is",       "is",      ],
+                ["lambda",   "lambda",  ]
+            ]

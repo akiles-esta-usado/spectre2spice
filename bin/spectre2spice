@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+##
+## Copyright (c) 2019 Thomas Benz.
+## 
+## This file is part of librecell-layout 
+## (see https://codeberg.org/thommythomaso/spectre2spice/master/)
+## 
+## This program is free software: you can redistribute it and/or modify
+## it under the terms of the CERN Open Hardware License (CERN OHL-S) as it will be published
+## by the CERN, either version 2.0 of the License, or
+## (at your option) any later version.
+## 
+## This program is distributed in the hope that it will be useful,
+## but WITHOUT ANY WARRANTY; without even the implied warranty of
+## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+## CERN Open Hardware License for more details.
+## 
+## You should have received a copy of the CERN Open Hardware License
+## along with this program. If not, see <http://ohwr.org/licenses/>.
+## 
+## 
+##
+
+# coding=utf8
+# -------------------------------------------------------------------------------
+# -- Title      : Main Programm
+# -- Project    : Spectre2Spice
+# -------------------------------------------------------------------------------
+# -- File       : spectre2spice
+# -- Author     : Thomas E. Benz  
+# -- Created    : 2018-11
+# -------------------------------------------------------------------------------
+# -- Description: This is the main application, that reads arguments from the cmd line
+# -------------------------------------------------------------------------------
+
+import argparse
+from spectre2spice.netlist_manager import netlist_manager
+
+
+# This file is the main application, it parses the command lines from the cmd and
+# calls the necessary functions
+
+def main():
+    # argument parser
+    description = '''Spectre2SPICE
+    An application to translate circuit level netlists from the native netlists
+    of the Cadence Spectre circuit simulator into SPICE'''
+
+    epilog = '''example: spectre2spice example/ my_netlist.scs output/ tech_example/'''
+
+    sps_arg_parser = argparse.ArgumentParser(description=description, epilog=epilog)
+
+    sps_arg_parser.add_argument('parent_path', metavar='parentPath', type=str, nargs=1,
+                                help='Path to the parent directory of the netlist')
+
+    sps_arg_parser.add_argument('top_file', metavar='topNetlist', type=str, nargs=1,
+                                help='The filename of the top netlist, name.ext')
+
+    sps_arg_parser.add_argument('output_path', metavar='outputPath', type=str, nargs=1,
+                                help='The output directory')
+
+    sps_arg_parser.add_argument('tech_path', metavar='techPath', type=str, nargs=1,
+                                help='Path to the translation files for model and device cards')
+
+    sps_arg_parser.add_argument('--log_path', metavar='logFolderPath', type=str, nargs=1,
+                                help='Path to the folder, where all logs are placed. If not specified, no logs are generated')
+
+    sps_arg_parser.add_argument('--debug', action='store_const', const=1,
+                                help='Display debug output to the terminal')
+
+    sps_arg_parser.add_argument('--silent', action='store_const', const=1,
+                                help='Suppresses all output')
+
+    # get the parsed arguments as a dict
+    args = vars(sps_arg_parser.parse_args())
+
+    # lets go
+    netlist_manager(args)
+
+
+if __name__ == '__main__':
+    main()

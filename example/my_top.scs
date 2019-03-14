@@ -1,0 +1,12 @@
+// this is the top level netlist to simulate
+
+simulator lang=spectre
+
+// include the libraray or the PDK
+include "library.scs"
+
+V1 vg  0 vsource dc=2.0 type=dc
+V0 vdd 0 vsource dc=3.3 type=dc
+R0 vdd vd resistor r=10k
+
+M0 vd vg 0 0 n_fet l=0.35u w=0.51u

@@ -1,0 +1,25 @@
+[resistor]
+spice_prefix = ["R"]
+keep_type    = "No"
+removed      = [""]
+translated   = [
+                    ["r",   "r"     ]
+            ]
+
+[vsource]
+spice_prefix = ["V"]
+keep_type    = "No"
+removed      = ["type"]
+translated   = [
+                    ["dc",   "dc"     ]
+            ]
+
+
+[nch]
+spice_prefix = ["M"]
+keep_type    = "Yes"
+removed      = [""]
+translated   = [
+                    ["l",    "l"      ],
+                    ["w",    "w"      ]
+            ]

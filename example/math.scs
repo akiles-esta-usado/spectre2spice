@@ -1,0 +1,5 @@
+// collection of helpful maths functions
+
+simulator lang=spectre
+
+real para(real a, real b) {return (a*b)/(a+b)}

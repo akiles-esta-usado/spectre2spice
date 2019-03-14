@@ -1,0 +1,10 @@
+// collection of global switches to steer thesimulation
+// and of variables used everywhere
+
+simulator lang=spectre
+
+parameters size_switch=0
++          gamma_lib=0.56
++          tox_material=1e-7
++          corrected_w = 0.578956
++          small_num = 5f

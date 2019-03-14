@@ -1,0 +1,8 @@
+*.log
+*.txt
+*.pyc
+output/
+output/*
+logs/
+logs/*
+spectre2spice.egg-info/

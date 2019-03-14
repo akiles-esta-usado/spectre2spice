@@ -1,0 +1,15 @@
+// translates the user given parameter to the 
+// parameters for the model
+
+inline subckt n_fet (d g s x)
+
+parameters l = 0.3u
++          w = 0.5u
++          w_final =    (size_switch) ? w*2 : w*3
++          l_final =    para(w, corrected_w)    
++          l_dev   =    (l>0.5u)  
+
+
+n_fet d g s x nch l=(1+0.5m*l_dev)*l_final w=w_final
+include "model/nch.scs"
+ends n_fet

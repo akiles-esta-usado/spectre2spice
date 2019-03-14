@@ -1,0 +1,7 @@
+// just a collection of all the library files in the order
+// they need to be included
+
+include "global_var.scs"
+include "math.scs"
+
+include "fet_lv1.scs"
