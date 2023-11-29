@@ -6,3 +6,4 @@ output/*
 logs/
 logs/*
 spectre2spice.egg-info/
+**/.venv
