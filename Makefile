@@ -15,8 +15,18 @@ RM=rm -rf
 all: venv
 
 
-.PHONY(venv)
+.PHONY: venv
 venv:
 	$(RM) .venv
 	$(PYTHON) -m venv .venv
 	. .venv/bin/activate && $(PYTHON) -m pip install -e .
+
+
+.PHONY: test
+test:
+	. .venv/bin/activate && spectre2spice example/ my_top.scs output/ tech_example/ --log_path logs/
+
+
+.PHONY: clear
+clear:
+	$(RM) logs output
