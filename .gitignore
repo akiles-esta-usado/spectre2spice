@@ -1,9 +1,9 @@
 *.log
 *.txt
 *.pyc
-output/
-output/*
-logs/
-logs/*
-spectre2spice.egg-info/
+**/output/
+**/output/*
+**/logs/
+**/logs/*
+**/spectre2spice.egg-info/
 **/.venv

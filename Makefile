@@ -24,7 +24,7 @@ venv:
 
 .PHONY: test
 test:
-	. .venv/bin/activate && spectre2spice example/ my_top.scs output/ tech_example/ --log_path logs/
+	. .venv/bin/activate && spectre2spice example/ex1/ my_top.scs output/ex1/ example/ex1/tech_example/ --log_path logs/
 
 
 .PHONY: clear
